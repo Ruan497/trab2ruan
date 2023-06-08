@@ -43,7 +43,9 @@ export class AddNewPetComponent implements OnInit {
     };
     this.blockUI.start()
     const formData = this.fDt.create(this.pet);
-    formData.append('image', this.selectedFile, this.selectedFile.name);
+    if (this.files.length) {
+      formData.append('image', this.selectedFile, this.selectedFile.name);
+    }
     this.petService.createPet(formData).subscribe({
       next: res => {
         this.toastrService.success('Animal cadastrado com sucesso', '', toastrConfig)

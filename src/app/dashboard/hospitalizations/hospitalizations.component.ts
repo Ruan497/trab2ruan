@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class HospitalizationsComponent implements OnInit {
 
-  pets: Array<any> = []
+  hospitalizations: Array<any> = []
 
   constructor(
     private service: PetsService,
@@ -26,21 +26,20 @@ export class HospitalizationsComponent implements OnInit {
     this.getPets()
   }
 
-  goToCreation(){
+  goToCreation() {
     this.route.navigate(['dash1/add-pets'])
   }
 
   showDetails(pet: any) {
-    this.route.navigate([`dash1/pets/details/${pet.id}`])
+    this.route.navigate([`dash1/hospitalizations/details/${pet.id}`])
   }
 
   getPets() {
-    this.service.getPets().subscribe({
+    this.service2.getHospitalizations().subscribe({
       next: res => {
-        console.log(res)
-        this.pets = res.data
-        this.pets.forEach((e, i) => {
-          this.pets[i].image = `${environment.BASE_URL}/storage/${e.image}`
+        this.hospitalizations = res.data
+        this.hospitalizations.forEach((e, i) => {
+          this.hospitalizations[i].pet.image = `${environment.BASE_URL}/storage/${e.pet.image}`
         })
       },
       error: err => {

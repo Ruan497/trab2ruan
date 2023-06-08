@@ -15,6 +15,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { BlockUIModule } from 'ng-block-ui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     DashboardModule,
     BlockUIModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(),
+
   ],
   providers: [
     HttpClient,

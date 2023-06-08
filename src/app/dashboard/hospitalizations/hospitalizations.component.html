@@ -8,12 +8,12 @@
                 <th>Idade</th>
                 <th>Dono</th>
             </tr>
-            <tr class="viewDetails" (click)="showDetails(p)" *ngFor="let p of pets">
-                <td><img [src]="p.image"></td>
-                <td>{{p.name}}</td>
-                <td>{{p.brief_description}}</td>
-                <td>{{p.age}}</td>
-                <td>{{p.tutor.name}}</td>
+            <tr class="viewDetails" (click)="showDetails(hosp)" *ngFor="let hosp of hospitalizations">
+                <td><img [src]="hosp.pet.image"></td>
+                <td>{{hosp.pet.name}}</td>
+                <td>{{hosp.description}}</td>
+                <td>{{hosp.start_date | date: 'dd/MM/yyyy'}}</td>
+                <td>{{hosp.end_date | date: 'dd/MM/yyyy'}}</td>
             </tr>
         </table>
     </div>

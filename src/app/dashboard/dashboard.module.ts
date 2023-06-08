@@ -14,6 +14,8 @@ import { GraphicReportsComponent } from './reports/graphic-reports/graphic-repor
 import { MatDialogModule } from '@angular/material/dialog';
 import { AddHospitalizationComponent } from './pets/add-hospitalization/add-hospitalization.component';
 import { HospitalizationsComponent } from './hospitalizations/hospitalizations.component';
+import { NgxMaskModule } from 'ngx-mask';
+import { HospitalizationsDetailComponent } from './hospitalizations/hospitalizations-detail/hospitalizations-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +28,16 @@ import { HospitalizationsComponent } from './hospitalizations/hospitalizations.c
     HospitalizationComponent,
     GraphicReportsComponent,
     AddHospitalizationComponent,
-    HospitalizationsComponent
+    HospitalizationsComponent,
+    HospitalizationsDetailComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     MatDialogModule,
     DashboardRoutingModule,
-    NgxDropzoneModule
+    NgxDropzoneModule,
+    NgxMaskModule
   ]
 })
 export class DashboardModule { }

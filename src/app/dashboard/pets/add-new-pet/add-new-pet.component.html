@@ -101,7 +101,7 @@
                             <label>CPF</label>
                             <div class="input-group">
                                 <input [(ngModel)]="pet.tutor_document" #tutorDoc="ngModel" id="inpDoc" name="inpDoc"
-                                    class="form-control" type="number">
+                                    class="form-control" type="text" mask="000.000.000-00">
                             </div>
                         </div>
                     </div>
@@ -116,8 +116,8 @@
                         <div class="col-md-3">
                             <label>Telefone</label>
                             <div class="input-group">
-                                <input [(ngModel)]="pet.tutor_number" #tutorEmail="ngModel" id="inptutorEmail"
-                                    name="inptutorEmail" class="form-control" type="email">
+                                <input [(ngModel)]="pet.tutor_number" #tutorEmail="ngModel" id="inptutorTel"
+                                    name="inptutorTel" class="form-control" type="text" mask="(00) 00000-0000">
                             </div>
                         </div>
                     </div>
