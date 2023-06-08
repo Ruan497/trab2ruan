@@ -1,0 +1,127 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class='card'>
+            <div style="background-color: #004D40; color: white;" class='card-header'>
+                <img [src]="pet.image"> Internação do animal de Nº {{pet.id}}
+            </div>
+            <div class='card-body'>
+                <div class="row custom-space">
+                    <div align="end" class="col-md-12">
+                        <button (click)="addHospitalization()" class="save-btn">Salvar</button>
+                    </div>
+                </div>
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-3">
+                            <label>Nome do animal</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="pet.name" #name="ngModel" id="inpname"
+                                    name="inpname" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Nome do tutor</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="pet.tutor.name" #tutor="ngModel" id="inpTutor" name="inpTutor"
+                                    class="form-control" type="text" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Idade do animal</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="pet.age" #age="ngModel" id="inpage"
+                                    name="inpage" type="number" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputTarget"> Espécie</label>
+                            <div class="form-group">
+                                <select id="inputTarget" [(ngModel)]="pet.species" name="inputTarget"
+                                    class="form-control" disabled>
+                                    <option value="1"> Felino</option>
+                                    <option value="2"> Canino</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Descrição breve</label>
+                            <div class="input-group">
+                                <textarea [(ngModel)]="pet.brief_description" #brief="ngModel" id="inpBrief"
+                                    name="inpBrief" class="form-control" placeholder="insira uma breve descrição"
+                                    readonly>
+                        </textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Descrição completa</label>
+                            <div class="input-group">
+                                <textarea [(ngModel)]="pet.description" #desc="ngModel" id="inpDesc" name="inpDesc"
+                                    class="form-control" placeholder="insira uma descrição completa" readonly>
+                        </textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form><br />
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Observação</label>
+                            <div class="input-group">
+                                <textarea [(ngModel)]="hospitalization.description" #desc="ngModel" id="inpDesc"
+                                    name="inpDesc" class="form-control" placeholder="Observação">
+                        </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-3">
+                            <label>Data de início</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="hospitalization.start_date" #tutor="ngModel" id="inpStartDate"
+                                    name="inpStartDate" class="form-control" type="date">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Data de fim</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="hospitalization.end_date" #tutor="ngModel" id="inpEndDate"
+                                    name="inpEndDate" class="form-control" type="date">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-3">
+                            <label for="inpTriage"> Triagem</label>
+                            <div class="form-group">
+                                <select id="inpTriage" [(ngModel)]="hospitalization.triage" name="inpTriage"
+                                    class="form-control">
+                                    <option value="blue" class="blue"> Azul</option>
+                                    <option value="green" class="green"> Verde</option>
+                                    <option value="yellow" class="yellow"> Amarelo</option>
+                                    <option value="orange" class="orange"> Laranja</option>
+                                    <option value="red" class="red"> Vermelho</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Cuidados especiais necessários</label>
+                            <div class="input-group">
+                                <textarea [(ngModel)]="hospitalization.special" #desc="ngModel" id="inpSpec"
+                                    name="inpSpec" class="form-control" placeholder="Cuidados especiais"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class='card-footer'>
+                <button class='btn btn-outline-secondary' style='width:80px'>
+                    <i class='fa fa-chevron-left'></i> Voltar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

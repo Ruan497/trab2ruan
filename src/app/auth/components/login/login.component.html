@@ -1,0 +1,53 @@
+<div class="login-page" class="img-back" >
+    <div class="container">
+        <div class="d-flex vh-100">
+            <div class="d-flex w-100 justify-content-center align-self-center">
+                <div class="card" style="background-color: rgb(224, 224, 224); width: 600px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form #formLogin="ngForm" (ngSubmit)="login()" id="form-login">
+                                <label for="inputEmail" class="form-input-label">E-mail ou código de acesso</label>
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <div style="background-color: #004D40;" class="input-group-text">
+                                            <span class="fa fa-envelope"></span>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                        [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}"
+                                        id="inputEmail" name="inputEmail" placeholder="E-mail ou código de acesso"
+                                        [(ngModel)]="user.email" #email="ngModel" maxlength="100" required />
+                                </div>
+                                <label for="inputPassword" class="form-input-label">Senha</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+                                        <div style="background-color: #004D40;" class="input-group-text">
+                                            <span class="fa fa-lock"></span>
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control"
+                                        [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched)}"
+                                        id="inputPassword" name="inputPassword" placeholder="Senha"
+                                        [(ngModel)]="user.password" #password="ngModel" minlength="6" maxlength="50"
+                                        required />
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <button type="submit" style="border: none; background-color: #004D40;" class="btn btn-outline-primary btn-block"
+                                        [disabled]="formLogin.invalid">ENTRAR</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a class="custom-link" routerLink="/recover-pass">Esqueceu sua senha?</a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a class="custom-link" routerLink="/create">Não possuí uma conta?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

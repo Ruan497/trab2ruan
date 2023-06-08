@@ -1,0 +1,49 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class="row custom-space">
+            <h2 class="col-md-9">Relatórios dos animais</h2>
+        </div>
+        <form role="form" #formReport="ngForm" (ngSubmit)="generateReport()" id="formReport">
+            <div class="row custom-space">
+                <div class="col-md-6">
+                    <label for="inputStart" class="form-input-label">
+                        Data de início
+                    </label>
+                    <input type="date" class="form-control" id="inputStart" name="inputStart" minlength="6" required />
+                </div>
+
+                <div class="col-md-6">
+                    <label for="inputEnd" class="form-input-label">
+                        Data de fim
+                    </label>
+                    <input type="date" class="form-control" id="inputEnd" name="inputEnd" minlength="6" required />
+                </div>
+            </div>
+
+            <div class="row custom-space">
+                <div class="col-md-12">
+                    <label for="inpTarget"> Tipo</label>
+                    <div class="form-group">
+                        <select (change)="defType($event)" id="inputTarget" name="inputTarget" class="form-control">
+                            <option value="1"> Dias restantes de internação</option>
+                            <option value="2"> Causas comuns</option>
+                            <option value="3"> Uso de medicamentos</option>
+                            <option value="4"> Índice de retornos</option>
+                            <option value="5"> Medicação/Vacinação inadequada ou ausente</option>
+                            <option value="6"> Produtos tóxicos/inapropriados</option>
+                            <option value="7"> Fatalidades</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row custom-space mt-4">
+                <div class="col-md-12">
+                    <button type="submit" style="width: 100%;" class="btn save-btn">
+                        IMPRIMIR
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

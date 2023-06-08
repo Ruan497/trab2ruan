@@ -1,0 +1,15 @@
+<h4>
+    Contratos pendentes de análise
+</h4>
+
+<div style="display: flex; flex-wrap: wrap;">
+    <ul class="card" *ngFor="let c of contracts" style="list-style-type:none; width: calc(33.33% - 10px); margin: 5px;"
+        [routerLink]="['details/', c.id]">
+        <li>
+            {{c.address}} - {{c?.city?.name? c.city.name : ''}}
+        </li>
+        <li>
+            {{c?.client?.id? c.client.id : ''}}
+        </li>
+    </ul>
+</div>

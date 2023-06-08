@@ -1,0 +1,25 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class="custom row-space">
+            <div class="col-md-3">
+                <button (click)="goToCreation()" class="add-pet">Cadastrar paciente</button>
+            </div>
+        </div>
+        <table class="table table-borderless">
+            <tr>
+                <th></th>
+                <th>Nome</th>
+                <th>Descrição breve</th>
+                <th>Idade</th>
+                <th>Dono</th>
+            </tr>
+            <tr class="viewDetails" (click)="showDetails(p)" *ngFor="let p of pets">
+                <td><img [src]="p.image"></td>
+                <td>{{p.name}}</td>
+                <td>{{p.brief_description}}</td>
+                <td>{{p.age}}</td>
+                <td>{{p.tutor.name}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

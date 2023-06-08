@@ -1,1 +1,506 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+p {
+  font-family: 'Roboto';
+}
+
+span {
+  font-family: 'Roboto';
+}
+
+th {
+  font-family: 'Roboto';
+}
+
+td {
+  font-family: 'Roboto';
+}
+
+h1 {
+  font-family: 'Roboto';
+}
+
+h2 {
+  font-family: 'Roboto';
+}
+
+h3 {
+  font-family: 'Roboto';
+}
+
+h4 {
+  font-family: 'Roboto';
+}
+
+h5 {
+  font-family: 'Roboto';
+}
+
+.btn-outline-info:hover {
+  color: #59c4d1;
+  background-color: rgb(255 255 255 / 80%);
+  border-color: #17a2b8;
+  font-weight: 500;
+}
+
+.btn-outline-info {
+  color: #59c4d1;
+  background-color: rgb(255 255 255 / 80%);
+  border-color: #17a2b8;
+  font-weight: 500;
+}
+
+.page-title {
+  font-weight: 700;
+  text-align: center;
+  font-size: 22px;
+  line-height: 0px;
+  margin-bottom: 30px;
+}
+
+.wrapper .content-wrapper {
+  min-height: calc(100vh - calc(1rem + 1px) - calc(3.5rem + 1px)) !important;
+}
+
+.custom-container {
+  padding: 30px;
+}
+
+.inside-pages-title {
+  position: static;
+  width: 128px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 150%;
+
+  color: #084CA1;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 4px 0px;
+}
+
+.content-wrapper {
+  background-color: white !important;
+}
+
+.custom-btn,
+.custom-header-btn {
+  background: #59C4D1 !important;
+  color: white !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  border-color: #59C4D1 !important;
+}
+
+.custom-header-btn {
+  width: 300px;
+}
+
+@media (max-width: 576px) {
+  .custom-header-btn {
+    width: 100%;
+  }
+}
+
+.btn-custom-active {
+  color: #084CA1 !important;
+  border-color: #084CA1 !important;
+}
+
+.btn-custom-active:hover {
+  color: #fff !important;
+  background-color: #2a55a3 !important;
+  border-color: #2a55a3 !important;
+}
+
+.btn-custom-inactive {
+  color: #BFBFBF !important;
+  border-color: #BFBFBF !important;
+}
+
+.btn-custom-inactive:hover {
+  color: #BFBFBF !important;
+  background-color: white !important;
+  border-color: #BFBFBF !important;
+}
+
+.error-message-title {
+  color: red;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.mandatory-field {
+  color: red;
+
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+/** removendo bordas das tabelas */
+
+.table-bordered {
+  border: 0px solid transparent !important;
+}
+
+table.dataTable {
+  border-collapse: collapse !important;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 0px solid #dee2e6 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  border-top: 0px solid !important;
+}
+
+th.action-icons.sorting::before {
+  display: none !important;
+}
+
+th.action-icons.sorting::after {
+  display: none !important;
+}
+
+table.dataTable td.dataTables_empty {
+  display: none;
+}
+
+.custom-icon-close {
+  cursor: pointer !important;
+  font-size: 14px !important;
+}
+
+hr.custom-hr-header {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 2px solid #59C4D1;
+}
+
+.row.custom-space {
+  margin-top: 10px;
+}
+
+ngx-dropzone,
+.custom-dropzone {
+  margin: 20px;
+}
+
+ngx-dropzone-label {
+  outline: none !important;
+  border: solid 1px transparent !important;
+}
+
+.custom-dropzone {
+  background: #fff !important;
+  color: #505050 !important;
+  border: 2px dashed #C3C6C8 !important;
+}
+
+.custom-dropzone.ngx-dz-hovered {
+  border: 2px solid #59C4D1 !important;
+}
+
+.custom-dropzone .drag-drop-icon {
+  font-size: 50px;
+}
+
+.custom-dropzone .title-file-upload {
+  color: #59C4D1;
+}
+
+.custom-dropzone .title {
+  color: #212529;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.custom-dropzone .sub-title {
+  margin: 0;
+  font-size: 14px;
+  color: #505050;
+}
+
+.float-end {
+  float: right;
+}
+
+.pointer {
+  cursor: pointer !important;
+}
+
+.custom-icon {
+  cursor: pointer !important;
+}
+
+.main-sidebar {
+  z-index: 996 !important;
+  position: fixed !important;
+}
+
+.patient-detail-pages-title {
+  position: static;
+  width: 128px;
+  height: 48px;
+  left: 0px;
+  top: 0px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 150%;
+  color: #084CA1;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 4px 0px;
+}
+
+.patient-detail-btn {
+  background: #59C4D1 !important;
+  color: white !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  border-color: #59C4D1 !important;
+  float: right !important;
+}
+
+.close-icon {
+  width: 15px;
+  cursor: pointer;
+  float: right;
+}
+
+.mat-step-header:hover {
+  background-color: rgb(0 0 0 / 0%) !important;
+}
+
+.mat-step-header.cdk-keyboard-focused, .mat-step-header.cdk-program-focused, .mat-step-header:hover {
+  background-color: rgb(0 0 0 / 0%) !important;
+}
+
+mat-option.mat-option {
+  line-height: 150%;
+  height: unset;
+}
+
+.mat-option-text.mat-option-text {
+  white-space: normal;
+}
+
+.wizard-progress {
+  list-style: none;
+  list-style-image: none;
+  padding: 0;
+}
+
+.wizard-progress li {
+  float: left;
+  text-align: center;
+  position: relative;
+}
+
+.wizard-progress .step-name {
+  display: table-cell;
+  height: 32px;
+  vertical-align: bottom;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.wizard-progress .step-num {
+  font-size: 14px;
+  border: 1px solid #BFBFBF;
+  background-color: #BFBFBF;
+  border-radius: 50%;
+  width: 23px;
+  display: inline-block;
+  margin-top: 10px;
+  color: #343a40;
+}
+
+.wizard-progress .step-num:after {
+  content: "";
+  background: #D9D4E7;
+  height: 1px;
+  width: 130%;
+  /* 130px; */
+  position: absolute;
+  top: 30px;
+}
+
+.wizard-progress li:last-of-type .step-num:after {
+  display: none;
+}
+
+.step-done .step-num::after {
+  background-color: #000;
+}
+
+.wizard-progress .step-done .step-num,
+.wizard-progress .step-active .step-num {
+  border-color: #5dc5cf;
+  background-color: #5dc5cf;
+  color: white;
+
+}
+
+.wizard-progress .step-active .step-name {
+  font-weight: bold;
+}
+
+/* wizard with 5 steps */
+
+.wizard-5-steps li {
+  margin-right: 11.9%;
+  width: 21%;
+}
+
+.wizard-5-steps .step-num:after {
+  left: 62%;
+}
+
+
+/* wizard with 6 steps */
+
+
+
+.wizard-6-steps li {
+  float: left;
+  margin-right: 5.5%;
+  /* 6.6687%; 50px */
+  width: 11%;
+}
+
+.wizard-6-steps .step-num:after {
+  left: 64%;
+}
+
+.complete {
+  border: 3px solid #00D792 !important;
+  background-color: #00D792 !important;
+  color: white !important;
+}
+
+ngx-dropzone, .custom-dropzone {
+  margin: 0 !important;
+}
+
+ngx-dropzone-preview {
+  max-width: 250px !important;
+}
+
+.btn-outline-info:hover {
+  color: #59c4d1;
+  background-color: rgb(255 255 255 / 80%);
+  border-color: #17a2b8;
+  font-weight: 500;
+}
+
+.btn-outline-info {
+  color: #59c4d1;
+  background-color: rgb(255 255 255 / 80%);
+  border-color: #17a2b8;
+  font-weight: 500;
+}
+
+.fc-h-event {
+  border: 1px solid gray !important;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #59c4d12b !important;
+}
+
+.dropdown-menu.show {
+  border-radius: 7px !important;
+}
+
+.custom-class-multiple-select .selected-list {
+  margin-bottom: 5px;
+}
+
+.custom-class-multiple-select .dropdown-list {
+  color: #000;
+}
+
+.custom-class-multiple-select .c-btn {
+  min-height: 35px !important;
+  border: 1px solid #D2D6DE !important;
+}
+
+.custom-class-multiple-select .c-btn>span {
+  color: #495057;
+}
+
+.custom-class-single-select .c-btn span.ng-star-inserted>span.ng-star-inserted {
+  font-weight: 500;
+  color: #fff !important;
+  background: #3c8dbc !important;
+  padding: 2px 8px 2px 8px;
+}
+
+.custom-class-multiple-select .c-token {
+  color: #FFF;
+  font-weight: 500;
+  background: #3C8DBC !important;
+}
+
+.custom-class-multiple-select .pure-checkbox label {
+  font-size: 16px;
+}
+
+.custom-class-multiple-select .pure-checkbox input[type="checkbox"]+label {
+  font-weight: 500;
+}
+
+.custom-class-multiple-select .pure-checkbox.selected-item {
+  color: #FFF;
+  background: #3C8DBC !important;
+}
+
+.form-control-clear {
+  margin-left: -40px;
+  z-index: 10;
+}
+
+.high-priority-demand {
+  color: #fff !important;
+  background-color: #dc3545 !important;
+}
+
+.medium-priority-demand {
+  color: #fff !important;
+  background-color: #ffc107 !important;
+}
+
+.low-priority-demand {
+  color: #fff !important;
+  background-color: #28a745 !important;
+}

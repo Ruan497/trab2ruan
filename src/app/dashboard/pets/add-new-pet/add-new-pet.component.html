@@ -1,0 +1,135 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class='card'>
+            <div style="background-color: #004D40; color: white;" class='card-header'>
+                Cadastro de novo animal
+            </div>
+            <div class='card-body'>
+                <div class="row custom-space">
+                    <div align="end" class="col-md-12">
+                        <button (click)="createPet()" class="save-btn">Cancelar</button>
+                        <button (click)="createPet()" class="save-btn">Salvar</button>
+                    </div>
+                </div>
+
+                <h2>Preencha o cadastro do animal</h2>
+
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-3">
+                            <label>Nome do animal</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="pet.name" #name="ngModel" id="inpname"
+                                    name="inpname" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Idade do animal</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="pet.age" #age="ngModel" id="inpage"
+                                    name="inpage" type="number">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputTarget"> Espécie</label>
+                            <div class="form-group">
+                                <select id="inputTarget" [(ngModel)]="pet.species" #species="ngModel" name="inputTarget"
+                                    class="form-control" required>
+                                    <option value="1"> Felino</option>
+                                    <option value="2"> Canino</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Descrição breve</label>
+                            <div class="input-group">
+                                <textarea [(ngModel)]="pet.brief_description" #brief="ngModel" id="inpBrief"
+                                    name="inpBrief" class="form-control" placeholder="insira uma breve descrição">
+                </textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Descrição completa</label>
+                            <div class="input-group">
+                                <textarea [(ngModel)]="pet.description" #desc="ngModel" id="inpDesc" name="inpDesc"
+                                    class="form-control" placeholder="insira uma descrição completa">
+                </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-3">
+                            <label for="professionalImagem" class="form-input-label">
+                                Foto do animal
+                            </label>
+                            <ngx-dropzone id="professionalImagem" name="professionalImagem"
+                                (change)="onSelectFiles($event)" [multiple]="false"
+                                accept="image/jpeg,image/jpg,image/png,">
+                                <ngx-dropzone-label class="file-upload-title">
+                                    <i class="fa fa-upload"></i>
+                                </ngx-dropzone-label>
+
+                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true"
+                                    (removed)="onRemoveFiles(f)">
+                                    <ngx-dropzone-label>
+                                        <div *ngIf="filePath" class="col-12 text-center">
+                                            <img class="img-fluid img-thumbnail" [src]="filePath" alt="Preview"
+                                                style="width: 250px; max-height:250px;">
+                                        </div>
+                                    </ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                    </div>
+                </form>
+                <br><br>
+
+                <h2>Preencha o cadastro do tutor</h2>
+
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-3">
+                            <label>Nome</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="pet.tutor_name" #tutor="ngModel" id="inpTutor" name="inpTutor"
+                                    class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Documento(cpf ou rg)</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="pet.tutor_document" #tutorDoc="ngModel" id="inpDoc" name="inpDoc"
+                                    class="form-control" type="number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-3">
+                            <label>Email</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="pet.tutor_email" #email="ngModel" id="inpEmail" name="inpEmail"
+                                    class="form-control" type="email">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label>Telefone</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="pet.tutor_number" #tutorEmail="ngModel" id="inptutorEmail"
+                                    name="inptutorEmail" class="form-control" type="email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Endereço</label>
+                            <input [(ngModel)]="pet.tutor_address" #tutorAddress="ngModel" id="inptutorAddress"
+                                name="inptutorAddress" class="form-control" type="email">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

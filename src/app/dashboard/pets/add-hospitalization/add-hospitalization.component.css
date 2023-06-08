@@ -1,0 +1,33 @@
+img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: #004D40 3px solid;
+}
+
+h2{
+    color: #004D40;
+}
+
+.cancel-btn {
+    height: 40px;
+    background-color: #004D40;
+    border-radius: 10px;
+    border: solid 1px #004D40;
+    color: white;
+    margin-right: 5px;
+}
+
+.save-btn {
+    height: 40px;
+    background-color: #004D40;
+    border-radius: 10px;
+    border: solid 1px #004D40;
+    color: white;
+}
+
+.descOne{
+    min-width: 200px;
+    max-width: 500px;
+    height: 150px;
+}

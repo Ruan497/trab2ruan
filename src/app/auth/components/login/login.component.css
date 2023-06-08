@@ -1,0 +1,55 @@
+.login-page {
+    /* position: relative; */
+    background: #F3FEFF;
+    background-size: cover;
+    background-position: center;
+}
+
+img.logo {
+    width: 330px;
+    margin-top: 10%;
+}
+
+.login-logo {
+    padding: 0px 15px;
+}
+
+.btn-outline-primary {
+    color: #f5f5f5;
+    border-color: #0054A5;
+    background-color: #0054A5;
+}
+
+.card {
+    box-shadow: 0 0 10px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 30%);
+    margin-bottom: 1rem;
+    width: 80%;
+    padding: 30px;
+}
+
+.custom-link {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    text-decoration-line: underline;
+    color: #084CA1;
+    float: right;
+}
+
+@media (max-width: 768px) {
+    img.logo {
+        width: 250px;
+        margin-top: 10%;
+
+    }
+}
+
+.img-back{
+    background-image: url(/assets/images/collie-e-estetoscópio-na-borda-do-cão-isolados-em-fundo-amarelo-cãozinho-recepção-no-médico-veterinário-clínica-166902821.jpg);
+    background-size: 1900px;
+    background-repeat: no-repeat;
+    background-position: center;
+}

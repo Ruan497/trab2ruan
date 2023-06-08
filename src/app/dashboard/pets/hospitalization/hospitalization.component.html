@@ -1,0 +1,27 @@
+<div class="row custom-space">
+    <div class="col-md-12">
+        <label for="toPayFile">Anexar arquivos</label>
+        <ngx-dropzone id="toPayFile" name="toPayFile" class="custom-dropzone" (change)="onSelectFiles($event)"
+            [multiple]="true">
+            <ngx-dropzone-label class="file-upload-title">
+                <i class="fa fa-upload drag-drop-icon"></i>
+                <p class="title"><span class="title-file-upload">Envie uma receita médica</span>
+                </p>
+                <p class="sub-title"></p>
+            </ngx-dropzone-label>
+
+            <ngx-dropzone-preview *ngFor="let file of selectedFiles; let i = index" [removable]="true"
+                (removed)="onRemoveFiles(i)">
+                <ngx-dropzone-label>
+                    <div class="col-12 text-center">
+                        {{file.name}} ({{file.type}})
+                    </div>
+                </ngx-dropzone-label>
+            </ngx-dropzone-preview>
+        </ngx-dropzone>
+    </div>
+</div>
+
+<div class="col-md-3">
+    <button (click)="upld()" class="save-btn">Salvar</button>
+</div>
