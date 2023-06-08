@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { FdService } from 'src/app/services/fd.service';
 import { PetsService } from 'src/app/services/pets.service';
+import { ToastrService, GlobalConfig } from 'ngx-toastr';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class AddNewPetComponent implements OnInit {
   constructor(
     private petService: PetsService,
     private fDt: FdService,
-    private sb: MatSnackBar
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -36,29 +37,23 @@ export class AddNewPetComponent implements OnInit {
   }
 
   createPet() {
+    const toastrConfig: Partial<GlobalConfig> = {
+      positionClass: 'toast-top-right',
+      progressBar: true
+    };
     this.blockUI.start()
     const formData = this.fDt.create(this.pet);
     formData.append('image', this.selectedFile, this.selectedFile.name);
     this.petService.createPet(formData).subscribe({
       next: res => {
-        this.showSuccessMessage('Pet created successfully');
-
+        this.toastrService.success('Animal cadastrado com sucesso', '', toastrConfig)
       }, error: err => {
-        console.log(err)
+        this.toastrService.error('Falha ao cadastrar animal', '', toastrConfig)
       }
     }).add(() => this.blockUI.stop())
   }
 
-  showSuccessMessage(message: string) {
-    const snackBarRef = this.snackBar.open(message, 'Close', {
-      duration: 5000, // Adjust the duration as needed (in milliseconds)
-    });
-  
-    // Automatically close the snackbar after a few seconds
-    setTimeout(() => {
-      snackBarRef.dismiss();
-    }, 3000); // Adjust the timeout as needed (in milliseconds)
-  }
+
 
   onRemoveFiles(event: any) {
     this.filePath = '';
