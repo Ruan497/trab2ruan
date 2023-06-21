@@ -3,7 +3,7 @@ import { Route, Router } from '@angular/router';
 import { PetsService } from 'src/app/services/pets.service';
 import { environment } from 'src/environments/environment';
 import { MatDialog } from '@angular/material/dialog';
-
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 
 @Component({
   selector: 'app-pets',
@@ -12,7 +12,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PetsComponent implements OnInit {
 
+  @BlockUI() blockUI!: NgBlockUI;
   pets: Array<any> = []
+  paginaAtual = 1;
 
   constructor(
     private service: PetsService,
@@ -24,8 +26,12 @@ export class PetsComponent implements OnInit {
     this.getPets()
   }
 
-  goToCreation(){
-    this.route.navigate(['dash1/add-pets'])
+  goToCreation(id?: any) {
+    if (id) {
+      this.route.navigate([`dash1/add-pets/${id}`])
+    } else {
+      this.route.navigate(['dash1/add-pets'])
+    }
   }
 
   showDetails(pet: any) {
@@ -33,6 +39,7 @@ export class PetsComponent implements OnInit {
   }
 
   getPets() {
+    this.blockUI.start()
     this.service.getPets().subscribe({
       next: res => {
         console.log(res)
@@ -44,6 +51,6 @@ export class PetsComponent implements OnInit {
       error: err => {
         console.log('erro')
       }
-    })
+    }).add(() => this.blockUI.stop())
   }
 }

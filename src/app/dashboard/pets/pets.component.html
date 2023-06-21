@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="custom row-space">
             <div class="col-md-3">
-                <button (click)="goToCreation()" class="add-pet">Cadastrar paciente</button>
+                <button (click)="goToCreation()" class="btn btn-info">Cadastrar paciente</button>
             </div>
         </div>
         <table class="table table-borderless">
@@ -12,14 +12,22 @@
                 <th>Descrição breve</th>
                 <th>Idade</th>
                 <th>Dono</th>
+                <th></th>
+                <th></th>
             </tr>
-            <tr class="viewDetails" (click)="showDetails(p)" *ngFor="let p of pets">
+            <tr class="viewDetails"
+                *ngFor="let p of pets | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
                 <td><img [src]="p.image"></td>
                 <td>{{p.name}}</td>
                 <td>{{p.brief_description}}</td>
                 <td>{{p.age}}</td>
                 <td>{{p.tutor.name}}</td>
+                <td><button (click)="showDetails(p)"  type="button" class="btn btn-outline-success" style="width: 50%;"><small class="fa fa-eye">Detalhes</small></button></td>
+                <td><button (click)="goToCreation(p.id)"  type="button" class="btn btn-outline-info" style="width: 50%;"><small class="fa fa-edit">Editar</small></button></td>
+                <td><button  type="button" class="btn btn-outline-danger" style="width: 50%;"><small class="fa fa-trash">Excluir</small></button></td>
             </tr>
         </table>
+        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior"
+            nextLabel="Próximo"></pagination-controls>
     </div>
 </div>

@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 export class HospitalizationsComponent implements OnInit {
 
   hospitalizations: Array<any> = []
+  paginaAtual = 1;
 
   constructor(
     private service: PetsService,

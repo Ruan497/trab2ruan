@@ -1,27 +1,75 @@
-<div class="row custom-space">
-    <div class="col-md-12">
-        <label for="toPayFile">Anexar arquivos</label>
-        <ngx-dropzone id="toPayFile" name="toPayFile" class="custom-dropzone" (change)="onSelectFiles($event)"
-            [multiple]="true">
-            <ngx-dropzone-label class="file-upload-title">
-                <i class="fa fa-upload drag-drop-icon"></i>
-                <p class="title"><span class="title-file-upload">Envie uma receita médica</span>
-                </p>
-                <p class="sub-title"></p>
-            </ngx-dropzone-label>
-
-            <ngx-dropzone-preview *ngFor="let file of selectedFiles; let i = index" [removable]="true"
-                (removed)="onRemoveFiles(i)">
-                <ngx-dropzone-label>
-                    <div class="col-12 text-center">
-                        {{file.name}} ({{file.type}})
-                    </div>
-                </ngx-dropzone-label>
-            </ngx-dropzone-preview>
-        </ngx-dropzone>
+<mat-dialog-content class="mat-typography">
+    <div class="modal-header text-center" style="width: 100%;">
+        <h2 class="modal-title white-text w-100 font-weight-bold py-2">Documentos</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
     </div>
-</div>
+    <div>
+        <div class="custom-container">
+            <div class="container-fluid">
+                <table class="table table-borderless" *ngIf="docs.length">
+                    <tr>
+                        <th>Nome</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr class="viewDetails" *ngFor="let p of docs">
+                        <td>{{p.nome}}</td>
+                        <td></td>
+                        <td><button (click)="view(p)" type="button" class="btn btn-outline-info"
+                                style="width: 30%;"><small class="fa fa-eye"></small></button></td>
+                        <td><button (click)="delete(p)" type="button" class="btn btn-outline-danger"
+                                style="width: 30%;"><small class="fa fa-trash"></small></button></td>
+                    </tr>
+                </table>
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-12">
+                            <label>Nome</label>
+                            <div class="input-group">
+                                <input [(ngModel)]="doc.nome" #dosc="ngModel" id="inpDoc" name="inpDoc"
+                                    class="form-control" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-12">
+                            <ngx-dropzone id="toPayFile" name="toPayFile" class="custom-dropzone"
+                                (change)="onSelectFiles($event)" [multiple]="true">
+                                <ngx-dropzone-label class="file-upload-title">
+                                    <i class="fa fa-upload drag-drop-icon"></i>
+                                    <p class="title"><span class="title-file-upload">Envie uma receita médica</span>
+                                    </p>
+                                    <p class="sub-title"></p>
+                                </ngx-dropzone-label>
 
-<div class="col-md-3">
-    <button (click)="upld()" class="save-btn">Salvar</button>
-</div>
+                                <ngx-dropzone-preview *ngFor="let file of selectedFiles; let i = index"
+                                    [removable]="true" (removed)="onRemoveFiles(i)">
+                                    <ngx-dropzone-label>
+                                        <div class="col-12 text-center">
+                                            {{file.name}} ({{file.type}})
+                                        </div>
+                                    </ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class='card-footer'>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                    (click)="closeModal()">CANCELAR</button>
+            </div>
+            <div class="col-md-6">
+                <button (click)="upld()" type="button" class="btn btn-outline-secondary"
+                    style="width: 100%;">SALVAR</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

@@ -1,15 +1,23 @@
 <div class="custom-container">
     <div class="container-fluid">
-        <div class='card'>
-            <div style="background-color: #004D40; color: white;" class='card-header'>
-                <img [src]="pet.image"> Internação do animal de Nº {{pet.id}}
+        <div class='card' *ngIf="pet.id">
+            <div style="background-color: #17A2B8; color: white;" class='card-header'>
+                Internação do animal de Nº {{pet.id}}
+            </div>
+            <div class='row card-body' *ngIf='pet'>
+                <div class="col-md-1">
+                    <img [src]="pet.image" alt="Imagem do Paciente">
+                </div>
+                <div class="col-md-6">
+                    <h3>{{ pet.name }}</h3>
+                    <span>{{ pet.description }}</span>
+                    <span>{{ pet.brief_description }}</span>
+                </div>
+                <div align="end" class="col-md-5">
+                    <button (click)="addHospitalization()" class="save-btn">Salvar</button>
+                </div>
             </div>
             <div class='card-body'>
-                <div class="row custom-space">
-                    <div align="end" class="col-md-12">
-                        <button (click)="addHospitalization()" class="save-btn">Salvar</button>
-                    </div>
-                </div>
                 <form role="form">
                     <div class="row custom-space">
                         <div class="col-md-3">

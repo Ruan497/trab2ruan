@@ -14,6 +14,7 @@ export class SidebarMenuComponent implements OnInit {
 
   @BlockUI() blockUI!: NgBlockUI;
   search: string = ''
+  activatedRoute = 'pets'
   public isProfileCompleted: boolean = false;
 
   constructor(
@@ -30,6 +31,10 @@ export class SidebarMenuComponent implements OnInit {
     } else {
       return false
     }
+  }
+
+  setRouteActivated(route: string) {
+    this.activatedRoute = route;
   }
 
   logout() {

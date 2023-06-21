@@ -1,0 +1,140 @@
+<mat-dialog-content class="mat-typography">
+    <div class="modal-header text-center" style="width: 100%;">
+        <h2 class="modal-title white-text w-100 font-weight-bold py-2">Medicamento</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+    </div>
+    <div>
+        <div class="custom-container">
+            <div class="container-fluid">
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label for="inpMed" class="form-input-label">
+                                Medicamento
+                            </label>
+                            <input matInput type="text" class="form-control" id="inpMed" name="inpMed"
+                                [(ngModel)]="filterMed" #measurePresentation="ngModel"
+                                (ngModelChange)="doFilterMeasure()" [matAutocomplete]="auto"/>
+                            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayMeasure">
+                                <mat-option *ngIf="isLoadingSearch" class="is-loading">Pesquisando...</mat-option>
+                                <ng-container *ngIf="!isLoadingSearch">
+                                    <mat-option *ngFor="let med of medications" [value]="med">
+                                        <span>{{ med.name }}</span>
+                                    </mat-option>
+                                </ng-container>
+                            </mat-autocomplete>
+                        </div>
+
+                        <div class="col-md-6" *ngIf="actualValue > 0">
+                            <label>Valor</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="actualValue" #val="ngModel" id="inpVal"
+                                    name="inpVal" type="text" currencyMask
+                                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Unidade do item</label>
+                            <div class="form-group">
+                                <select id="inputTarget" [(ngModel)]="medication.item_unity" #unity="ngModel"
+                                    name="inputTarget" class="form-control" required>
+                                    <option value="1"> Cartela/frasco(Compromido/Capsula)</option>
+                                    <option value="2"> Líquido(ml)</option>
+                                    <option value="3"> Peso(gr)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Quantidade disponível</label>
+                            <div class="form-group">
+                                <input class="form-control" [(ngModel)]="medication.itemquantity" #disp="ngModel"
+                                    id="inpQty" name="inpQty" type="number">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Quantidade destinada</label>
+                            <div class="form-group">
+                                <input class="form-control" [(ngModel)]="medication.toPetQuantity" #dest="ngModel"
+                                    id="inpPQty" name="inpPQty" type="number">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inpDrops" class="form-input-label">Informar em gotas</label> <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="inpDrops" (change)="defDrops()"
+                                    required>
+                                <label class="form-check-label" for="inpDrops">Gotas?</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label for="inpFrequency" class="form-input-label">
+                                Frequência
+                            </label>
+                            <div class="form-group">
+                                <select id="inpFrequency" name="inpFrequency" class="form-control"
+                                    aria-label="Selecione a frequência" [(ngModel)]="medication.frequency" #freq
+                                    required>
+                                    <option value="1">Único</option>
+                                    <option value="2">Diário</option>
+                                    <option value="3">Semanal</option>
+                                    <option value="4">Mensal</option>
+                                    <option value="5">8/8h</option>
+                                    <option value="6">36/36h</option>
+                                    <option value="7">48/48h</option>
+                                    <option value="8">72/72h</option>
+                                    <option value="9">96/96h</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space" *ngIf="medication.frequency != '1'">
+                        <div class="col-md-6">
+                            <label>De:</label>
+                            <div class="form-group">
+                                <input class="form-control" [(ngModel)]="medication.start" #start="ngModel"
+                                    id="inpStart" name="inpStart" type="date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Até:</label>
+                            <div class="form-group">
+                                <input class="form-control" [(ngModel)]="medication.end" #end="ngModel" id="inpEnd"
+                                    name="inpEnd" type="date" (change)="viewValue()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6" *ngIf="finalPrice > 0">
+                            <label>Valor total</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="finalPrice" #val="ngModel" id="inpVal"
+                                    name="inpVal" type="text" currencyMask
+                                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class='card-footer'>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="button" class="btn btn-outline-secondary" style="width: 100%;"
+                    (click)="closeModal()">CANCELAR</button>
+            </div>
+            <div class="col-md-6">
+                <button (click)="createMed()" type="button" class="btn btn-outline-secondary"
+                    style="width: 100%;">SALVAR</button>
+            </div>
+        </div>
+    </div>
+</mat-dialog-content>

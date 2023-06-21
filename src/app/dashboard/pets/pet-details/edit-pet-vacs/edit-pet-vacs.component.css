@@ -1,0 +1,158 @@
+.modal-title {
+    color: white;
+}
+
+.close {
+    color: white;
+}
+
+::ng-deep .mat-dialog-content {
+    padding: 0 !important;
+    margin-top: -24px !important;
+    margin-bottom: -24px !important;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.modal-header {
+    background-color: #232323;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+h2 {
+    color: #006776;
+}
+
+.cancel-btn {
+    height: 40px;
+    background-color: #17A2B8;
+    border-radius: 10px;
+    border: solid 1px #17A2B8;
+    color: white;
+    margin-right: 5px;
+}
+
+.save-btn {
+    height: 40px;
+    background-color: #17A2B8;
+    border-radius: 10px;
+    border: solid 1px #17A2B8;
+    color: white;
+}
+
+.descOne {
+    min-width: 200px;
+    max-width: 500px;
+    height: 150px;
+}
+
+h2 {
+    color: #006776;
+}
+
+.cancel-btn {
+    height: 40px;
+    background-color: #17A2B8;
+    border-radius: 10px;
+    border: solid 1px #17A2B8;
+    color: white;
+    margin-right: 5px;
+}
+
+.save-btn {
+    height: 40px;
+    background-color: #17A2B8;
+    border-radius: 10px;
+    border: solid 1px #17A2B8;
+    color: white;
+}
+
+.descOne {
+    min-width: 200px;
+    max-width: 500px;
+    height: 150px;
+}
+
+.toast-custom-width {
+    width: 400px;
+    /* Set the desired width for the toastr message */
+}
+
+button{
+    margin-right: 8px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

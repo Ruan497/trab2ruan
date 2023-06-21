@@ -1,38 +1,26 @@
 <nav class="mt-2">
   <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
     <div>
-      <li class="nav-item">
-        <a routerLink="/dash1/pets" class="nav-link">
+      <li [ngClass]="activatedRoute === 'pets' ? 'active' : 'menu'">
+        <a routerLink="/dash1/pets" (click)="setRouteActivated('pets')" class="nav-link">
           <p class="linkMenu">
             Animais
           </p>
         </a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/dash1/hospitalizations" class="nav-link">
+      <li [ngClass]="activatedRoute === 'meds' ? 'active' : 'menu'">
+        <a class="nav-link" routerLink="/dash1/medicamentos" (click)="setRouteActivated('meds')">
+          <i></i>
           <p class="linkMenu">
-            Internações
+            Medicamentos
           </p>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link">
+      <li [ngClass]="activatedRoute === 'vacs' ? 'active' : 'menu'">
+        <a class="nav-link" routerLink="/dash1/vacinas" (click)="setRouteActivated('vacs')">
+          <i></i>
           <p class="linkMenu">
-            Adoções ( em desenvolvimento)
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">
-          <p class="linkMenu">
-            Estoque ( em desenvolvimento)
-          </p>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="/dash1/reports" class="nav-link">
-          <p class="linkMenu">
-            Relatórios
+            Vacinas e medicações
           </p>
         </a>
       </li>

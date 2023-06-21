@@ -1,41 +1,186 @@
 <div class="custom-container">
     <div class="container-fluid">
-        <div class='card'>
-            <div style="background-color: #004D40; color: white;" class='card-header'>
+        <div *ngIf="pet.id" class='card'>
+            <div style="background-color: #17A2B8; color: white;" class='card-header'>
                 Detalhes do animal de Nº {{pet.id}}
+            </div>
+            <div class='row card-body' *ngIf='pet'>
+                <div class="col-md-1">
+                    <img [src]="pet.image" alt="Imagem do Paciente">
+                </div>
+                <div class="col-md-6">
+                    <h3>{{ pet.name }}</h3>
+                    <span>{{ pet.description }}</span><br>
+                    <span>Entrada: {{ pet.created_at | date : 'dd/MM/yyyy' }}</span>
+                </div>
+                <div align="end" class="col-md-5">
+                    <button *ngIf="pet.appoin_status == '0' && pet.hosp == '0'" (click)="init(pet.id)"
+                        class="btn btn-outline-success">Iniciar consulta</button>
+                    <button *ngIf="pet.appoin_status == '1' && pet.hosp == '0'" (click)="init(pet.id)"
+                        class="btn btn-outline-danger">Encerrar consulta</button>
+                </div>
+            </div>
+
+            <div class='card-body'>
+                <span class="label-span">Tutor: </span>
+                <span>{{ pet.tutor?.name? pet.tutor.name : '' }}</span>
+                <br>
+                <span>{{ pet.tutor?.email? pet.tutor.email : '' }}</span>
+                <br>
+                <span>{{ pet.tutor?.number? pet.tutor.number : '' }}</span>
+                <br>
+                <span>{{ pet.tutor?.address? pet.tutor.address : '' }}</span>
+            </div>
+
+            <div class='card-body'>
+                <span class="label-span">Vacinas e medicações em dia <span (click)="editVac()" style="cursor: pointer;"
+                        class="fa fa-edit"></span></span>
+                <br>
+                <div *ngFor="let vac of vacs">
+                    <span class="fa fa-check" *ngIf="check(vac.id) == true"> {{vac.name}}</span>
+                    <span class="fa fa-times" *ngIf="check(vac.id) == false"> {{vac.name}}</span>
+                    <br>
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <div class="custom-container">
+                    <div class="container-fluid">
+                        <div class="col-md-12">
+                            <div class="custom-collapse">
+                                <h4 class="collapse-title">
+                                    <div class="collapse-div-left">
+                                        <a class="custom-icon">
+                                            Medicações
+                                        </a>
+                                    </div>
+                                    <div class="collapse-div-right">
+                                        <a (click)="medicationData()" class="fa fa-edit custom-icon-right"
+                                            aria-hidden="true" data-toggle="tooltip" data-placement="top"
+                                            title="Editar dados pessoais" style="text-decoration: underline;">Editar</a>
+                                        <a *ngIf="!collapseIsOpen.medData" (click)="openCollapse(true, 'med-data')"
+                                            class="fa fa-angle-down custom-icon-right" data-toggle="collapse"
+                                            href="#collapsemedData" aria-expanded="false"
+                                            aria-controls="collapsemedData" style="font-size: 0.7em;"></a>
+                                        <a *ngIf="collapseIsOpen.medData" (click)="openCollapse(false, 'med-data')"
+                                            class="fa fa-angle-up custom-icon-right" data-toggle="collapse"
+                                            href="#collapsemedData" aria-expanded="false"
+                                            aria-controls="collapsemedData" style="font-size: 0.7em;"></a>
+                                    </div>
+                                </h4>
+                                <div class="collapse" id="collapsemedData">
+                                    <div class="card card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 custom-data">
+                                                <table class="table table-borderless">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th></th>
+                                                            <th>Nome</th>
+                                                            <th>Valor do produto</th>
+                                                            <th>Tipo de dosagem</th>
+                                                            <th>Quantidade de dosagem</th>
+                                                            <th>Período</th>
+                                                            <th>Valor orçado</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let med of medications">
+                                                            <td></td>
+                                                            <td>{{med?.med?.name? med.med.name : ''}}</td>
+                                                            <td>{{med?.med?.value? (med.med.value | currency: 'BRL') :
+                                                                ''}}
+                                                            </td>
+                                                            <td>{{med?.item_unity == '1'? 'Compromido ou cápsula' :
+                                                                med?.item_unity == '2'? 'Ml' : 'gr'}}</td>
+                                                            <td>{{med?.toPetQuantity? med.toPetQuantity : ''}}</td>
+                                                            <td>{{med?.start? (med.start | date: 'dd/MM/yyyy') :
+                                                                'Indefinido'}} - {{med?.end? (med.end | date:
+                                                                'dd/MM/yyyy')
+                                                                : 'Indefinido'}}</td>
+                                                            <td>{{med?.total_value? (med.total_value | currency: 'BRL')
+                                                                :''}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="custom-collapse">
+                                <h4 class="collapse-title">
+                                    <div class="collapse-div-left">
+                                        <a class="custom-icon">
+                                            Exames
+                                        </a>
+                                    </div>
+                                    <div class="collapse-div-right">
+                                        <a (click)="examData()" class="fa fa-edit custom-icon-right" aria-hidden="true"
+                                            data-toggle="tooltip" data-placement="top" title="Editar dados pessoais"
+                                            style="text-decoration: underline;">Editar</a>
+                                        <a *ngIf="!collapseIsOpen.examData" (click)="openCollapse(true, 'exam-data')"
+                                            class="fa fa-angle-down custom-icon-right" data-toggle="collapse"
+                                            href="#collapseExamData" aria-expanded="false"
+                                            aria-controls="collapseExamData" style="font-size: 0.7em;"></a>
+                                        <a *ngIf="collapseIsOpen.examData" (click)="openCollapse(false, 'exam-data')"
+                                            class="fa fa-angle-up custom-icon-right" data-toggle="collapse"
+                                            href="#collapseExamData" aria-expanded="false"
+                                            aria-controls="collapseExamData" style="font-size: 0.7em;"></a>
+                                    </div>
+                                </h4>
+                                <div class="collapse" id="collapseExamData">
+                                    <div class="card card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 custom-data">
+                                                <table class="table table-borderless">
+                                                    <thead>
+                                                        <tr role="row">
+                                                            <th></th>
+                                                            <th>Nome</th>
+                                                            <th>Valor do produto</th>
+                                                            <th>Valor orçado</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let med of exams">
+                                                            <td></td>
+                                                            <td>{{med?.med?.name? med.med.name : ''}}</td>
+                                                            <td>{{med?.med?.value? (med.med.value | currency: 'BRL') :
+                                                                ''}}
+                                                            </td>
+                                                            <td>{{med?.total_value? (med.total_value | currency: 'BRL')
+                                                                :''}}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <div class='card-body' *ngIf='pet'>
-                <div class='row'>
-                    <div class='col-md-8'>
-                        <div class='row'>
-                            <div class='col-md-4'>Nome:</div>
-                            <div class='col-md-8'>{{pet.name}}</div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-md-4'>código:</div>
-                            <div class='col-md-8'>{{pet.id}}</div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-md-4'>Descrição:</div>
-                            <div class='col-md-8'>{{pet.description}}</div>
-                        </div>
-                        <div class='row'>
-                            <div class='col-md-4'>Tutor</div>
-                            <div class='col-md-8'>{{pet.tutor.name}}</div>
-                        </div>
-                    </div>
-                </div><br/>
                 <div class="row">
                     <div class="col-md-3">
-                        <button (click)="openCliped()" class="download-btn">Baixar anexado</button>
+                        <button (click)="uploadDoc()" class="btn btn-outline-dark">Documentos</button>
                     </div>
-                    <div class="col-md-3">
-                        <button (click)="uploadDoc()" class="download-btn">Upload de receita</button>
+                    <div *ngIf="pet.hosp == '0'" class="col-md-3">
+                        <button (click)="initHospitalization()" class="btn btn-outline-dark">Internar</button>
                     </div>
-                    <div class="col-md-3">
-                        <button (click)="initHospitalization()" class="download-btn">Internar</button>
+                    <div *ngIf="pet.hosp == '1'" class="col-md-3">
+                        <button (click)="initHospitalization()" class="btn btn-outline-dark">Dar alta</button>
                     </div>
+                    <button (click)="init(pet.id)" class="btn btn-outline-dark">Relatório de consultas </button>
                 </div>
             </div>
 

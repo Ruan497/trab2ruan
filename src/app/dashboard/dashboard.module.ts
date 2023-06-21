@@ -16,6 +16,18 @@ import { AddHospitalizationComponent } from './pets/add-hospitalization/add-hosp
 import { HospitalizationsComponent } from './hospitalizations/hospitalizations.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { HospitalizationsDetailComponent } from './hospitalizations/hospitalizations-detail/hospitalizations-detail.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { AddMedicationComponent } from './hospitalizations/add-medication/add-medication.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { ProductsComponent } from './inventory/products/products.component';
+import { AddProductComponent } from './inventory/products/add-product/add-product.component';
+import { EditPetVacsComponent } from './pets/pet-details/edit-pet-vacs/edit-pet-vacs.component';
+import { VaccinesComponent } from './inventory/vaccines/vaccines.component';
+import { AddVaccinesComponent } from './inventory/vaccines/add-vaccines/add-vaccines.component';
+import { DeleteComponent } from './common/delete/delete.component';
+import { AddExamComponent } from './hospitalizations/add-exam/add-exam.component';
+import { ReporPetComponent } from './repor-pet/repor-pet.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +41,16 @@ import { HospitalizationsDetailComponent } from './hospitalizations/hospitalizat
     GraphicReportsComponent,
     AddHospitalizationComponent,
     HospitalizationsComponent,
-    HospitalizationsDetailComponent
+    HospitalizationsDetailComponent,
+    AddMedicationComponent,
+    ProductsComponent,
+    AddProductComponent,
+    EditPetVacsComponent,
+    VaccinesComponent,
+    AddVaccinesComponent,
+    DeleteComponent,
+    AddExamComponent,
+    ReporPetComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +58,10 @@ import { HospitalizationsDetailComponent } from './hospitalizations/hospitalizat
     MatDialogModule,
     DashboardRoutingModule,
     NgxDropzoneModule,
-    NgxMaskModule
+    NgxMaskModule,
+    NgxPaginationModule,
+    MatAutocompleteModule,
+    CurrencyMaskModule
   ]
 })
 export class DashboardModule { }

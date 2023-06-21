@@ -1,0 +1,57 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class='card'>
+            <div style="background-color: #17A2B8; color: white;" class='card-header'>
+                Cadastro de produto ou serviço
+            </div>
+            <div class='card-body'>
+                <div class="row custom-space">
+                    <div align="end" class="col-md-12">
+                        <button class="save-btn">Cancelar</button>
+                        <button (click)="createProd()" class="save-btn">Salvar</button>
+                    </div>
+                </div>
+
+                <form role="form">
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Nome</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="product.name" #name="ngModel" id="inpname"
+                                    name="inpname" type="text">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label>Descrição</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="product.description" #desc="ngModel"
+                                    id="inpDesc" name="inpDesc" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row custom-space">
+                        <div class="col-md-6">
+                            <label>Valor total</label>
+                            <div class="input-group">
+                                <input class="form-control" [(ngModel)]="product.value" #val="ngModel" id="inpVal"
+                                    name="inpVal" type="text" currencyMask
+                                    [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="inputTarget"> Fracionado</label>
+                            <div class="form-group">
+                                <select id="inputTarget" [(ngModel)]="product.fractioned" #frac="ngModel"
+                                    name="inputTarget" class="form-control" required>
+                                    <option value="1"> Sim</option>
+                                    <option value="0"> Não</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -537,7 +537,7 @@ ngx-dropzone-preview {
   top: 12px;
   left: 12px;
 }
-.toast-top-right {
+.toast-top-left {
   top: 12px;
   right: 12px;
 }
@@ -697,3 +697,7 @@ button.toast-close-button {
     width: 25em;
   }
 }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

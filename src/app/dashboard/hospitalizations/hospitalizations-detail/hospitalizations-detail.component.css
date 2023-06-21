@@ -1,0 +1,71 @@
+img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: #004D40 3px solid;
+}
+.download-btn{
+    background-color: #004d4018;
+    border: 2px solid #004D40;
+    border-radius: 5px;
+}
+
+.custom-icon {
+    cursor: pointer !important;
+    color: black;
+  }
+  
+  .custom-icon-right {
+    cursor: pointer !important;
+    color: black;
+    font-size: 0.5em;
+    padding-left: 5%;
+  }
+  
+  .collapse-div-right {
+    width: 50%;
+    display: inline;
+    float: right;
+    text-align: right;
+  }
+  
+  .collapse-div-left {
+    width: 50%;
+    display: inline;
+  }
+  
+  .custom-collapse {
+    margin-bottom: 25px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+  }
+  
+  .collapse-title {
+    padding: 10px;
+  }
+  
+  .card-body {
+    margin: 10px;
+  }
+  
+  .user-data {
+    font-size: 0.8em;
+    color: rgb(119, 118, 118);
+  }
+  
+  .userImg {
+    width: 100px;
+  }
+  
+  a[aria-expanded=true] .fa-angle-up {
+    display: none !important;
+  }
+  a[aria-expanded=false] .fa-angle-down {
+    display: none !important;
+  }
+  
+  .custom-data span {
+    font-size: 1.1em;
+    color: rgb(119, 118, 118);
+  }
+  

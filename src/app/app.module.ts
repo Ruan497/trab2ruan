@@ -16,6 +16,9 @@ import { BlockUIModule } from 'ng-block-ui';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
     CommonModule,
     BrowserAnimationsModule,
     DashboardModule,
+    NgxPaginationModule,
+    MatAutocompleteModule,
     BlockUIModule.forRoot(),
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),

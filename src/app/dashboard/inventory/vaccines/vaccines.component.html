@@ -1,0 +1,25 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class="custom row-space">
+            <div class="col-md-3">
+                <button (click)="medicationData()" class="btn btn-info">Cadastrar vacina</button>
+            </div>
+        </div>
+        <table class="table table-borderless">
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr class="viewDetails" *ngFor="let p of vacs">
+                <td>{{p.name}}</td>
+                <td>{{p.value | currency : 'BRL'}}</td>
+                <td><button (click)="medicationData(p)" type="button" class="btn btn-outline-info"
+                        style="width: 30%;"><small class="fa fa-edit">Editar</small></button></td>
+                <td><button (click)="delete(p)" type="button" class="btn btn-outline-danger" style="width: 30%;"><small
+                            class="fa fa-trash">Excluir</small></button></td>
+            </tr>
+        </table>
+    </div>
+</div>

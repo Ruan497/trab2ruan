@@ -1,0 +1,28 @@
+.modal-title {
+    color: white;
+}
+
+.close {
+    color: white;
+}
+
+::ng-deep .mat-dialog-content {
+    padding: 0 !important;
+    margin-top: -24px !important;
+    margin-bottom: -24px !important;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.modal-header {
+    background-color: #232323;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}

@@ -2,7 +2,7 @@ img {
   border-radius: 50%;
   width: 80px;
   height: 80px;
-  border: #004D40 3px solid;
+  border: #006776 3px solid;
 }
 
 .add-pet{
@@ -14,6 +14,6 @@ img {
 
 .viewDetails:hover{
   background-color: #004d4018;
-  cursor: pointer;
+
 }
 

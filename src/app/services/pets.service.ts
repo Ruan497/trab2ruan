@@ -29,6 +29,10 @@ export class PetsService {
         return this.http.post(this.apiUrl + '/pet', pet).pipe(map((result: any) => { return result }))
     }
 
+    alterAppoint(pet: any) {
+        return this.http.post(this.apiUrl + '/pet/appoints', pet).pipe(map((result: any) => { return result }))
+    }
+
     generateReportA() {
         return this.http.get(this.apiUrl + `/pet/printA`, { responseType: 'blob' }).pipe(map((result: any) => { return result }))
     }

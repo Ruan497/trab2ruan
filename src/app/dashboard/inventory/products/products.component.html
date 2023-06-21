@@ -1,0 +1,24 @@
+<div class="custom-container">
+    <div class="container-fluid">
+        <div class="custom row-space">
+            <div class="col-md-3">
+                <button (click)="goToCreation()" class="btn btn-info">Cadastrar produto ou serviço</button>
+            </div>
+        </div>
+        <table class="table table-borderless">
+            <tr>
+                <th>Nome</th>
+                <th>Descrição breve</th>
+                <th>Valor</th>
+            </tr>
+            <tr class="viewDetails" (click)="showDetails(p)"
+                *ngFor="let p of pets | paginate: { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                <td>{{p.name}}</td>
+                <td>{{p.description}}</td>
+                <td>{{p.value}}</td>
+            </tr>
+        </table>
+        <pagination-controls (pageChange)="paginaAtual = $event" previousLabel="Anterior"
+            nextLabel="Próximo"></pagination-controls>
+    </div>
+</div>
